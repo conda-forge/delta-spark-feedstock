@@ -1,13 +1,13 @@
 {% set name = "delta-spark" %}
-{% set version = "2.2.0" %}
+{% set version = "2.3.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-    url: https://github.com/delta-io/delta/archive/refs/tags/v{{ version }}.tar.gz
-    sha256: 18ad6b9630e02847fa145327cfb7d2a62b58f347f828846200167f4604b20182
+  url: https://github.com/delta-io/delta/archive/refs/tags/v{{ version }}.tar.gz
+  sha256: 0c0ea5edb5e8f30fc56b5ab5c8fed50db93d75b047d8241fe1b2449858d9db1c
 
 build:
   noarch: python
