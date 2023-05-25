@@ -1,11 +1,11 @@
-About delta-spark
-=================
+About delta-spark-feedstock
+===========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/delta-spark-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/delta-io/delta/
 
 Package license: Apache-2.0
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/delta-spark-feedstock/blob/main/LICENSE.txt)
 
 Summary: Python APIs for using Delta Lake with Apache Spark
 
