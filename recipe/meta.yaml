@@ -1,26 +1,28 @@
 {% set name = "delta-spark" %}
-{% set version = "2.2.0" %}
+{% set version = "4.0.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-    url: https://github.com/delta-io/delta/archive/refs/tags/v{{ version }}.tar.gz
-    sha256: 18ad6b9630e02847fa145327cfb7d2a62b58f347f828846200167f4604b20182
+  url: https://github.com/delta-io/delta/archive/refs/tags/v{{ version }}.tar.gz
+  sha256: fc3c0e9d4466b81cdbd981eb67d4caa6fc0fdc9917058ce029fba34ecb502ff6
 
 build:
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-deps
   number: 0
 
 requirements:
   host:
-    - python >=3.6
+    - python >=3.9
     - pip
+    - setuptools
+    - wheel
   run:
-    - python >=3.6
-    - pyspark <3.4.0,>=3.3.0
+    - python >=3.9
+    - pyspark >=4.0.0,<4.1.0
     - importlib-metadata >=1.0.0
 
 test:
