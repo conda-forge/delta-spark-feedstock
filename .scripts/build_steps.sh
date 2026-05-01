@@ -32,10 +32,13 @@ pkgs_dirs:
 CONDARC
 
 
-mamba install --update-specs --yes --quiet --channel conda-forge \
-    conda-build pip boa conda-forge-ci-setup=3 "py-lief<0.12"
-mamba update --update-specs --yes --quiet --channel conda-forge \
-    conda-build pip boa conda-forge-ci-setup=3 "py-lief<0.12"
+# Workaround: the docker image base env is currently Python 3.12, but
+# conda-forge-ci-setup=3 does not support Python 3.12 (solver failure).
+# Pin the tooling env Python to <3.12 so the bootstrap environment can be solved.
+MAMBA_ARGS='--update-specs --yes --quiet --channel conda-forge "python<3.12" conda-build pip boa conda-forge-ci-setup=3 "py-lief<0.12"'
+
+mamba install $MAMBA_ARGS
+mamba update  $MAMBA_ARGS
 
 # set up the condarc
 setup_conda_rc "${FEEDSTOCK_ROOT}" "${RECIPE_ROOT}" "${CONFIG_FILE}"
